@@ -16,7 +16,7 @@ const AWS = require('aws-sdk'),
 			Key: calculateS3Key(event),
 			Bucket: BUCKET_NAME,
 			ContentType: 'application/json',
-			Body: JSON.stringify(event, null, 2)
+			Body: event
 		}).promise();
 	};
 
