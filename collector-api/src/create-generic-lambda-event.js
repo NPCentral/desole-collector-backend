@@ -13,6 +13,7 @@ module.exports = function createGenericEventFromLambda(lambdaProxyEvent) {
 	desoleEvent.referrer = normalizedHeaders.referer;
 	desoleEvent.endpoint = {
 		country: normalizedHeaders['cloudfront-viewer-country'],
+		ip: normalizedHeaders['x-forwarded-for'],
 		userAgent: lambdaProxyEvent.requestContext.identity.userAgent,
 		deviceType: extractDeviceType(normalizedHeaders),
 		runtime: userAgent.family,
