@@ -24,7 +24,7 @@ For a detailed list of supported parameters, check out [`template.yaml`](templat
   ```
 3. Package the template
   ```bash
-  aws cloudformation package --template-file template.yaml --output-template-file output.yaml
+  aws cloudformation package --template-file template.yaml --output-template-file output.yaml --s3-bucket <S3 BUCKET for Cloudformation artifacts>
   ```
 4. Deploy the packaged template
   ```bash
@@ -32,3 +32,7 @@ For a detailed list of supported parameters, check out [`template.yaml`](templat
   ```
 
 You can also override CloudFormation template parameters by using `--parameter-overrides <NAME>=<VALUE>` after the `deploy` command. For a detailed list of supported parameters, check out [`template.yaml`](template.yaml)
+
+## Stack Updates
+
+Use same commands in steps 2 to 4 in "Deploying..." above after making any changes.

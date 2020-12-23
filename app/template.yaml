@@ -10,7 +10,7 @@ Parameters:
     Description: Expiry time (in days) for events on S3 storage. The event details will be automatically removed from S3 after expiry. Leave empty for no expiration.
   BucketEncryption:
     Type: String
-    Default: AES256
+    Default: None
     AllowedValues: 
       - None
       - AES256
@@ -36,7 +36,7 @@ Parameters:
     MinLength: 1
   CloudWatchNameSpace:
     Type: String
-    Default: MM-v2-desole
+    Default: MM-desole2
     Description: CloudWatch Metrics Namespace
     AllowedPattern: ^[0-9A-Za-z\._/-]+$
     MaxLength: 250

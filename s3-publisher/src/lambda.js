@@ -9,14 +9,23 @@ const AWS = require('aws-sdk'),
 			year = date.getFullYear(),
 			month = date.getMonth() + 1,
 			day = date.getDate();
+			if (!event.type) event.type = 'unknown';
 		return [BUCKET_PREFIX, event.app.name, event.app.stage, year, month, day, event.severity, event.type, event.id].join('/');
 	},
 	storeSingleEvent = event => {
+		let eventData;
+		try{
+			eventData = JSON.stringify(event);
+		}catch(e){
+			console.error(e);
+			console.error('could not stringify event:', event);
+			eventData = event;
+		}
 		return s3.putObject({
 			Key: calculateS3Key(event),
 			Bucket: BUCKET_NAME,
 			ContentType: 'application/json',
-			Body: event
+			Body: eventData
 		}).promise();
 	};
 
