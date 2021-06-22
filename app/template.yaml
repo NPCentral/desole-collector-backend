@@ -52,7 +52,7 @@ Resources:
     Properties:
       CodeUri: desole.zip
       Handler: collector-api.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Environment:
         Variables:
           TOPIC_ARN: !Ref CollectorTopic
@@ -88,7 +88,7 @@ Resources:
     Properties:
       CodeUri: desole.zip
       Handler: s3-publisher.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Environment:
         Variables:
           BUCKET_NAME: !Ref CollectedEventsStorage
@@ -106,7 +106,7 @@ Resources:
     Properties:
       CodeUri: desole.zip
       Handler: cloudwatch-publisher.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Environment:
         Variables:
           CLOUDWATCH_NAMESPACE: !Ref CloudWatchNameSpace
