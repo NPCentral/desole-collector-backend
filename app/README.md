@@ -24,11 +24,11 @@ For a detailed list of supported parameters, check out [`template.yaml`](templat
   ```
 3. Package the template
   ```bash
-  aws cloudformation package --template-file template.yaml --output-template-file output.yaml --s3-bucket <S3 BUCKET for Cloudformation artifacts>
+  aws cloudformation package --template-file template.yaml --output-template-file output.yaml --s3-bucket 'npc-cloudformation-templates' --s3-prefix 'desole'
   ```
 4. Deploy the packaged template
   ```bash
-  aws cloudformation deploy --template-file output.yaml --capabilities CAPABILITY_IAM --stack-name <STACK NAME> 
+  aws cloudformation deploy --template-file output.yaml --capabilities CAPABILITY_IAM --stack-name MM-DESOLE-Collector 
   ```
 
 You can also override CloudFormation template parameters by using `--parameter-overrides <NAME>=<VALUE>` after the `deploy` command. For a detailed list of supported parameters, check out [`template.yaml`](template.yaml)
